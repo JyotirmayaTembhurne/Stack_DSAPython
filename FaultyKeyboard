@@ -1,0 +1,14 @@
+class Solution:
+    def finalString(self, s: str) -> str:
+        result = str()
+        length = len(s)
+        for i in range(length):
+            if s[i] == "i":
+                temp = result[-1::-1]
+                result = ""
+                result += temp
+            else:
+                result += s[i]
+        return result
+
+        
