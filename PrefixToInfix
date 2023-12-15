@@ -1,0 +1,12 @@
+def prefixToInfixConversion(s: str) -> str:
+    operators =  {"-", "+", "/", "^", "*"}
+    stack = list()
+    for char in reversed(s):
+        if char.isalnum():
+            stack.append(char)
+        elif char in operators:
+            o1 = stack.pop()
+            o2 = stack.pop()
+            expression = f"({o1}{char}{o2})"
+            stack.append(expression)
+    return stack[0]
