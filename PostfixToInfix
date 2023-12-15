@@ -1,0 +1,12 @@
+postfix = "311+^"
+stack = list()
+operator = {"-", "+", "/", "^", "*"}
+for char in postfix:
+    if char.isalnum():
+        stack.append(char)
+    elif char in operator:
+        o2 = stack.pop()
+        o1 = stack.pop()
+        expression = f"({o1}{char}{o2})"
+        stack.append(expression)
+print(stack[0])
